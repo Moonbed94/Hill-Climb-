@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5fstukpj46sg"]
+
+[ext_resource type="Script" uid="uid://cr3ktpkriases" path="res://Scripts/player.gd" id="1_gntrk"]
+[ext_resource type="PackedScene" uid="uid://cvcmp3ba5sh50" path="res://Scenes/wheel.tscn" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://b5tcb42pxl4u1" path="res://Sprites/CarBody.png" id="2_gntrk"]
+
+[node name="Player" type="RigidBody2D" groups=["player"]]
+script = ExtResource("1_gntrk")
+
+[node name="WheelHolderL" type="PinJoint2D" parent="."]
+position = Vector2(-101, 29)
+scale = Vector2(0.913194, 0.913194)
+node_a = NodePath("..")
+node_b = NodePath("WheelL")
+softness = 1.0
+
+[node name="WheelL" parent="WheelHolderL" instance=ExtResource("1_kyqiw")]
+
+[node name="WheelHolderR" type="PinJoint2D" parent="."]
+position = Vector2(117, 29)
+scale = Vector2(0.913194, 0.913194)
+node_a = NodePath("..")
+node_b = NodePath("WheelR")
+softness = 1.0
+
+[node name="WheelR" parent="WheelHolderR" instance=ExtResource("1_kyqiw")]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-3, -4)
+scale = Vector2(17.2035, -1.98776)
+polygon = PackedVector2Array(-9.23815, 15.4406, -7.03903, 16.3292, -5.03252, 24.3272, -2.64077, 29.9554, -0.987409, 29.0668, 0.746211, 27.5856, 2.39957, 20.9207, 3.65163, 13.9594, 4.50239, 9.96045, 5.75445, 9.36801, 8.22646, 7.29446, 9.41431, 1.51814, 10.1527, -9.14584, 9.93984, -14.5893, 9.88171, -18.1108, 9.47482, -20.6262, 9.06793, -21.6324, 8.70802, -22.0315, -7.6169, -19.3655, -9.0098, -16.0985, -9.53295, -13.0801, -9.82359, -6.03695, -9.65551, -1.29597, -9.46288, 0.48136, -9.38262, 5.51713, -9.28631, 10.9972)
+
+[node name="CarBody" type="Sprite2D" parent="."]
+rotation = -0.00872665
+scale = Vector2(0.274385, 0.274971)
+texture = ExtResource("2_gntrk")

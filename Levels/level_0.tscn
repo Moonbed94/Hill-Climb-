@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://kxw5wg3vcupi"]
+
+[ext_resource type="PackedScene" uid="uid://ydyd53mlqwx7" path="res://Scenes/car.tscn" id="1_o6pxs"]
+[ext_resource type="Script" uid="uid://cr3ktpkriases" path="res://Scripts/player.gd" id="2_d3n4i"]
+[ext_resource type="PackedScene" uid="uid://bb342t6igax18" path="res://Scenes/Coin5.tscn" id="3_finow"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d3n4i"]
+
+[node name="Level0" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_d3n4i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(66, 408, 694, 440, 1277, 420, 1824, 279, 2549, 309, 2924, 518, 3332, 411, 3755, 241, 4219, 40, 4608, 48, 4900, 103, 5077, 248, 5195, 521, 5315, 761, 5315, 1224, 2903, 1303, 490, 1284, 40, 1178)
+
+[node name="Player" parent="." instance=ExtResource("1_o6pxs")]
+position = Vector2(598, 298)
+script = ExtResource("2_d3n4i")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Node2D" parent="." instance=ExtResource("3_finow")]
+position = Vector2(1105, 311)
