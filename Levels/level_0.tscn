@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://kxw5wg3vcupi"]
+[gd_scene load_steps=7 format=3 uid="uid://kxw5wg3vcupi"]
 
-[ext_resource type="PackedScene" uid="uid://ydyd53mlqwx7" path="res://Scenes/car.tscn" id="1_o6pxs"]
-[ext_resource type="Script" uid="uid://cr3ktpkriases" path="res://Scripts/player.gd" id="2_d3n4i"]
+[ext_resource type="PackedScene" uid="uid://c5fstukpj46sg" path="res://Scenes/Player.tscn" id="2_d3n4i"]
+[ext_resource type="Script" uid="uid://byrko73la5syd" path="res://Scripts/CameraFollow.cs" id="3_epnel"]
 [ext_resource type="PackedScene" uid="uid://bb342t6igax18" path="res://Scenes/Coin5.tscn" id="3_finow"]
+[ext_resource type="Script" uid="uid://iut4e7ya0pi1" path="res://Levels/coin_counter.gd" id="4_epnel"]
+[ext_resource type="FontFile" uid="uid://dcc4edxl1lv7c" path="res://Fonts/Roboto/static/TESTING FONT.tres" id="5_5pqfd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d3n4i"]
 
@@ -14,11 +16,40 @@ physics_material_override = SubResource("PhysicsMaterial_d3n4i")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(66, 408, 694, 440, 1277, 420, 1824, 279, 2549, 309, 2924, 518, 3332, 411, 3755, 241, 4219, 40, 4608, 48, 4900, 103, 5077, 248, 5195, 521, 5315, 761, 5315, 1224, 2903, 1303, 490, 1284, 40, 1178)
 
-[node name="Player" parent="." instance=ExtResource("1_o6pxs")]
-position = Vector2(598, 298)
-script = ExtResource("2_d3n4i")
+[node name="Player" parent="." instance=ExtResource("2_d3n4i")]
+position = Vector2(483, 337)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(219, -13)
+offset = Vector2(0, 2.125)
+script = ExtResource("3_epnel")
 
 [node name="Node2D" parent="." instance=ExtResource("3_finow")]
-position = Vector2(1105, 311)
+position = Vector2(1008, 322)
+
+[node name="Node2D2" parent="." instance=ExtResource("3_finow")]
+position = Vector2(1450, 219)
+
+[node name="Node2D3" parent="." instance=ExtResource("3_finow")]
+position = Vector2(1914, 179)
+
+[node name="Node2D4" parent="." instance=ExtResource("3_finow")]
+position = Vector2(2412, 196)
+
+[node name="Node2D5" parent="." instance=ExtResource("3_finow")]
+position = Vector2(2980, 374)
+
+[node name="Node2D6" parent="." instance=ExtResource("3_finow")]
+position = Vector2(3448, 258)
+
+[node name="Node2D7" parent="." instance=ExtResource("3_finow")]
+position = Vector2(3900, 55)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_epnel")
+
+[node name="CoinNumber" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("5_5pqfd")
+theme_override_font_sizes/font_size = 100
