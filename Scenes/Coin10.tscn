@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb342t6igax18"]
+[gd_scene load_steps=4 format=3 uid="uid://b8u3c12esimt6"]
 
-[ext_resource type="Texture2D" uid="uid://bocyvj6qn70dt" path="res://Sprites/5.png" id="1_20lyl"]
-[ext_resource type="Script" uid="uid://bwiw1aensutdp" path="res://Scripts/coinBehaviour.gd" id="1_jda2l"]
+[ext_resource type="Script" uid="uid://bwiw1aensutdp" path="res://Scripts/coinBehaviour.gd" id="1_0doot"]
+[ext_resource type="Texture2D" uid="uid://b3c6m2o2jtjgx" path="res://Sprites/10.png" id="2_u04nr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jda2l"]
 
 [node name="Node2D" type="Area2D" groups=["coin"]]
-script = ExtResource("1_jda2l")
-value = 5
+script = ExtResource("1_0doot")
+value = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.153816, 0.153816)
-texture = ExtResource("1_20lyl")
+texture = ExtResource("2_u04nr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.42109e-14, 0)
